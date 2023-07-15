@@ -22,7 +22,6 @@ public class Route {
 
 	public Route() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Route(int route_id, String from_location, String to_location) {
@@ -31,7 +30,7 @@ public class Route {
 		this.from_location = from_location;
 		this.to_location = to_location;
 	}
-
+	
 	public int getRoute_id() {
 		return route_id;
 	}
