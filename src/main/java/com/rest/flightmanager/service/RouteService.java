@@ -24,7 +24,7 @@ public class RouteService {
 	public boolean updateRoute(Integer routeId, Route route) {
 		boolean updated = false;
 		for(Route r : routeRepository.findAll()) {
-			if(routeId == route.getRoute_id()) {
+			if(routeId == r.getRoute_id()) {
 				r.setFrom_location(route.getFrom_location());
 				r.setTo_location(route.getTo_location());
 				updated = true;
