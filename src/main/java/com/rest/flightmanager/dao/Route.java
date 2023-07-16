@@ -1,22 +1,32 @@
 package com.rest.flightmanager.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "jpa_route")
 public class Route {
-	
+
 	@Id
 	@Column
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int route_id;
-	
+
+	@OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+	private List<Flights> rflights = new ArrayList<>();
+
 	@Column
 	private String from_location;
-	
+
 	@Column
 	private String to_location;
 
@@ -30,7 +40,7 @@ public class Route {
 		this.from_location = from_location;
 		this.to_location = to_location;
 	}
-	
+
 	public int getRoute_id() {
 		return route_id;
 	}
@@ -60,5 +70,5 @@ public class Route {
 		return "Route [route_id=" + route_id + ", from_location=" + from_location + ", to_location=" + to_location
 				+ "]";
 	}
-	
+
 }

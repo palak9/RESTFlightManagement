@@ -1,10 +1,12 @@
 package com.rest.flightmanager.dao;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Booking {
 
 	@Id
@@ -20,7 +22,6 @@ public class Booking {
 
 	public Booking() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Booking(int booking_id, String user_emailid, int flight_id) {

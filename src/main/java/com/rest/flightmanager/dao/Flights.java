@@ -1,0 +1,57 @@
+package com.rest.flightmanager.dao;
+
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "jpa_flights")
+public class Flights {
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int flightId;
+
+	@Column
+	private LocalDateTime arrival;
+
+	@Column
+	private LocalDateTime departure;
+
+	@ManyToOne
+	private Airline airline;
+
+	@ManyToOne
+	private Route route;
+
+	public LocalDateTime getArrival() {
+		return arrival;
+	}
+
+	public void setArrival(LocalDateTime arrival) {
+		this.arrival = arrival;
+	}
+
+	public LocalDateTime getDeparture() {
+		return departure;
+	}
+
+	public void setDeparture(LocalDateTime departure) {
+		this.departure = departure;
+	}
+
+	public int getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(int flightId) {
+		this.flightId = flightId;
+	}
+
+}

@@ -1,28 +1,37 @@
 package com.rest.flightmanager.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "jpa_airlines")
 public class Airline {
 
 	@Id
 	@Column
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int airline_id;
-	
+
+	@OneToMany(mappedBy = "airline", cascade = CascadeType.ALL) // object name will be mapped not table name
+	private List<Flights> flights = new ArrayList<>();
+
 	@Column
 	private String airline_name;
-	
+
 	@Column
 	private int airline_capacity;
 
 	public Airline() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Airline(int airline_id, String airline_name, int airline_capacity) {
@@ -61,5 +70,5 @@ public class Airline {
 		return "Airline [airline_id=" + airline_id + ", airline_name=" + airline_name + ", airline_capacity="
 				+ airline_capacity + "]";
 	}
-		
+
 }

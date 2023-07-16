@@ -1,8 +1,10 @@
 package com.rest.flightmanager.dao;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class User {
 	
 	@Id
@@ -14,10 +16,11 @@ public class User {
 	
 	@Column
 	private String mobile;
+	
+	
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(String user_emailid, String user_name, String mobile) {
