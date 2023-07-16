@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,7 +16,7 @@ public class Flights {
 
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int flightId;
 
 	@Column
@@ -25,9 +26,11 @@ public class Flights {
 	private LocalDateTime departure;
 
 	@ManyToOne
+	@JoinColumn(name = "airline_id")
 	private Airline airline;
 
 	@ManyToOne
+	@JoinColumn(name = "route_id")
 	private Route route;
 
 	public LocalDateTime getArrival() {
@@ -54,4 +57,20 @@ public class Flights {
 		this.flightId = flightId;
 	}
 
+	public Airline getAirline() {
+		return airline;
+	}
+
+	public void setAirline(Airline airline) {
+		this.airline = airline;
+	}
+
+	public Route getRoute() {
+		return route;
+	}
+
+	public void setRoute(Route route) {
+		this.route = route;
+	}
+	
 }

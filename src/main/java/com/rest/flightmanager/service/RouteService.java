@@ -32,4 +32,9 @@ public class RouteService {
 		}
 		return updated;
 	}
+	
+	public void addRoute(Route route) {
+		System.out.println("Adding Route :: "+route);
+		routeRepository.save(route);
+	}
 }

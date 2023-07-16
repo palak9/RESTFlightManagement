@@ -19,4 +19,8 @@ public class FlightService {
 		return flights;
 	}
 
+	public void addFlight(Flights flight) {
+		flightsRepository.save(flight);
+	}
+	
 }
